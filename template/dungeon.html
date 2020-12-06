@@ -1,0 +1,69 @@
+<div class="row no-gutters">
+:: for iRoomId => oRoom in oPlayer.dungeon.roomAr ::
+<div class="col-6 bg-light">
+	<div class="square">
+	<div class="box-room">
+		<div class="box-room-wall-top"><div class="box-room-wall"></div></div>
+		<div class="box-room-wall-bottom"><div class="box-room-wall"></div></div>
+		<div class="box-room-wall-left"><div class="box-room-wall"></div></div>
+		<div class="box-room-wall-right"><div class="box-room-wall"></div></div>
+		<div class="row">
+			:: for oMonster in oRoom.fighterAr ::
+			<div class="col-4 info-monster bg-white mb-2">
+				<div>
+					<img class="img-fluid" src=":: oMonster.type.icon ::" />
+				</div>
+				<div>
+					:: oMonster.type.label ::
+				</div>
+				<div class="gauge-health">
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" style="width: calc( :: oMonster.health :: / :: oMonster.type.healthMax ::  * 100% )"></div>
+					</div>
+				</div>
+				<div>
+					<button type="button">
+						Sell
+						<img src="image/gold.jpeg" 
+						/>&nbsp;:: oMonster.type.gold ::
+					</button>
+				</div>
+			</div>
+			:: endfor ::
+			<input id="input-collapse-::iRoomId::" class="d-none" type="checkbox" /> 
+			<label for="input-collapse-::iRoomId::" class="btn-secondary">
+				+
+			</label>
+			<div class="row collapsed d-uncheck-none">
+				:: for oOption in oPlayer.dungeon.shopOptionAr ::
+				<div class="col-4">
+				<button class="btn-secondary" type="button" 
+					data-click="buy"
+					data-buy=":: oOption.label ::"
+					data-room=":: iRoomId ::"
+				>
+					<span>
+						<img class="img-fluid" src=":: oOption.icon ::" />
+					</span>
+					<span>
+						:: oOption.label ::
+					</span>
+					<span>
+						:: oOption.gold :: 
+						<img src="image/gold.jpeg" />
+					</span>
+					<span>
+						:: oOption.space ::
+						<img src="image/space.jpeg" />
+					</span><br/>
+					:: render dice with { dice: oOption.dice } ::
+				</button>
+				</div>
+				:: endfor ::
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+:: endfor ::
+</div>

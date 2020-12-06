@@ -1,0 +1,61 @@
+<div>1:00</div>
+<div>
+	<button type="button" data-click="end_setup">
+		Next
+	</button>
+</div>
+<section>
+	<div class="container-fluid">
+		:: for oPlayer in page.game.playerAr ::
+		:: render(dungeon) ::
+		<div class="row">
+		<div class="col-12">
+			Attack group :
+			<div class="row">
+			:: for oFighter in oPlayer.attackGroup() ::
+			<div class="col">
+				:: oFighter.type.label ::
+			</div>
+			:: endfor ::
+			</div>
+		</div>
+		</div>
+		<div>
+			<input id="input-collapse-::id::" type="checkbox" /> 
+			<label for="input-collapse-::id::" class="btn">
+				+
+			</label>
+			<div class="collapsed d-uncheck-none">
+				:: for oOption in oPlayer.attackerShopOption ::
+				<div>
+				<button class="option" type="button" 
+					data-click="buy_attacker"
+					data-buy=":: oOption.label ::"
+				>
+					<span>
+						<img class="img-fluid" src=":: oOption.icon ::" />
+					</span>
+					<span>
+						:: oOption.label ::
+					</span>
+					<span>
+						:: oOption.gold :: 
+						<img src="image/gold.jpeg" />
+					</span>
+					<span>
+						:: oOption.space ::
+						<img src="image/space.jpeg" />
+					</span><br/>
+					:: render dice with { dice: oOption.dice } ::
+				</button>
+				</div>
+				:: endfor ::
+			</div>
+		</div>
+		:: if oPlayer.fight != null ::
+			:: render fight with { oFight: oPlayer.fight }  ::
+		:: endif ::
+		
+		:: endfor ::
+	</div>
+</section>

@@ -1,0 +1,68 @@
+
+<section class="container-fluid">
+	<div class="row justify-content-center">
+		<div class="col-auto text-center">
+			<div class="">
+				strength
+			</div>
+			<div class="row">
+			<div class="col-6">
+				V
+			</div>
+			<div class="col-6">
+				^
+			</div>
+			<div class="col-4">
+				magic
+			</div>
+			<div class="col-4">
+				>
+			</div>
+			<div class="col-4">
+				agility
+			</div>
+			</div>
+		</div>
+	</div>
+	:: for iEngageDefId => oEngagement in oFight.engageAr ::
+	<div class="row text-center">
+	<div class="col-6 border">
+		:: render fight_fighter with { oFighter: oEngagement.defender_action.fighter, oDiceFace: oEngagement.defender_action.dice_face } :: 
+	</div>
+	<div class="col-6" data-fighter=":: oEngagement.defender_action.fighter.id ::">
+		:: for iEngageAttId => oEngageAtt in oEngagement.attacker_engagement_ar ::
+		<div class="row border js-dropzone" data-drop-action="swap_engagement" 
+			draggable="true" 
+			data-fighter=":: oEngageAtt.attacker_action.fighter.id ::"
+			data-engage_id=":: iEngageDefId ::-:: iEngageAttId ::" 
+			ondragstart="event.dataTransfer.setData('text/plain',null)"
+		>
+		<div class="col-auto px-3">
+			::  oEngageAtt.damage ::<br/>
+			:: if oEngageAtt.damage < 0 ::
+				&rarr;
+			:: endif ::
+			:: if oEngageAtt.damage > 0 ::
+				&larr;
+			:: endif ::
+		</div>
+		<div class="col">
+			:: render fight_fighter with { oFighter: oEngageAtt.attacker_action.fighter, oDiceFace: oEngageAtt.attacker_action.dice_face } ::
+		</div>
+		</div>
+		:: endfor ::
+		:: if oEngagement.attacker_engagement_ar.length < oFight.maxOverflow ::
+		<div class="row border js-dropzone show-ondrag" 
+			data-drop-action="set_engagement" 
+			data-engage_id=":: iEngageDefId ::"
+		>
+		<div class="col-auto px-3 py-3">
+			-
+		</div>
+		</div>
+		:: endif ::
+	</div>
+	</div>
+	:: endfor ::
+	<button type="button" data-click="combat_next">Next</button>
+</section>

@@ -1,0 +1,17 @@
+
+#_______________________________________________________________________________
+# Client compilation
+
+-lib unveil
+
+# Select directory
+-cp src
+
+# Resource
+
+
+# JavaScript target
+-js build/game.js
+
+-main Main
+

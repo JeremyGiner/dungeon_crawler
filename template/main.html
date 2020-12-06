@@ -1,0 +1,45 @@
+:: for oPlayer in page.game.playerAr ::
+<section>
+	<div class="container-fluid">
+		
+		<div class="row">
+		<div class="col-12">
+			Group :
+			<div class="row">
+			:: for oFighter in oPlayer.attackGroup() ::
+			<div class="col-4 info-monster mb-2">
+				<div>
+					<img class="img-fluid" src=":: oFighter.type.icon ::" />
+				</div>
+				<div>
+					:: oFighter.type.label ::
+				</div>
+				<div class="">
+					<div class="progress">
+						<div class="progress-bar bg-success" role="progressbar" style="width: calc( :: oFighter.health :: / :: oFighter.type.healthMax ::  * 100% )">
+							:: oFighter.health :: / :: oFighter.type.healthMax ::
+						</div>
+					</div>
+				</div>
+				<div class="py-1">
+					:: render dice with { dice: oFighter.type.dice } ::
+				</div>
+			</div>
+			:: endfor ::
+			</div>
+		</div>
+		<div id="wrapper-worldmap" class="col-12">
+			:: render worldmap with { oWorldmap:  page.game.worldmap, oPlayer: oPlayer } ::
+		</div>
+		</div>
+		
+		
+		
+	</div>
+</section>
+:: if oPlayer.fight != null ::
+<section>
+	:: render fight with { oFight: oPlayer.fight }  ::
+</section>
+:: endif ::
+:: endfor ::

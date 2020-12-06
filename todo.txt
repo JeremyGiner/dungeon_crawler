@@ -1,0 +1,233 @@
+
+room style
+	door
+	fix wall seems
+treasure room
+
+shop menu
+style button
+even items length
+order by 
+
+
+style monster card
+draw room background
+draw bat cat paysan, barbar, mage
+
+dynamic size max width/height
+
+combat overflow
+
+redesign room flow
+	- combat only last a turn and attack move up
+
+draw gold / space icon
+draw shop icon
+
+sell monster action
+? list the dead during combat ?
+
+____________
+dungeon crawler
+
+3 hero
+	thief
+	healer
+	paladin - hight hp, str, int
+level up menu
+	dice remover
+	superior dice
+	dice limit
+map
+	- ennemy camp
+	- treasure
+
+trap (detect,damage)	
+
+_________________________________________________________________________
+
+combat 
+
+water -> fire -> air
+agi -> str -> int ->
+
+___________________________________________________________________________
+
+
+1 STEP - buy monster
+2 STEP - setup heros
+3 STEP - change sign direction
+
+Hero
+_____
+Mage - ranged - magical attack - anti-magic
+Archer - ranged - physical attack - cloth defence
+Warrior - meele - physical attack - armored
+Paladin - melee - magic attack - armored
+
+
+Greedy: take additionnal loot, take more damage from trap
+
+Equipement
+________
+
+torch
+	1 time use
+	weaken light fearing creature
+ 
+Misc
+_____
+
+Drinking fountain
+	heal hero and monster
+
+Steve
+	weak against all
+Mechanical
+_____
+Truck (hit only once)
+
+Misery
+_____
+Rat (Reembourse upon death)
+Bat (Nocturnal (disabled by light), Fly ( dodge first melee damage), Vamp (regen on hit))
+Goblin
+	ability : next gobelin are cheaper
+Treasure gobelin (force hero to go left (or right) at a cost)
+
+Gobelin Store
+	doesn't fight
+Devious
+_____
+Brain in a jar
+	very weak, always win against mage
+Mimic
+	disabled next turn
+Walking shadow
+
+Displacer 
+	party attack from behind
+
+Undead
+_____
+
+Undead
+	ability : dexterous
+Ghost
+	weak : combat last 2 turn
+	immune to physical fighter
+Stitched corpse
+
+Plant
+_____
+
+Venus trap
+	require : sun light
+Thorn thrower
+Black roses
+Dryad
+
+
+Tyran
+_____
+
+Dragon
+
+Roc
+_____
+Gargoyle
+Null magic statue
+
+Water
+____
+Dark mirror
+	copy defeated foes
+Siren
+Kraken
+
+
+___________________________________________________________________________
+Hero
+
+Adventurer
+Warrior ( physical damage resistant )
+Mage ( magical damage resistant )
+Thief ( on contact paralyze any trap for X second )
+
+
+___________________________________________________________________________
+Gimmick
+
+Treasure chest
+
+Trap
+_________
+Spike trap
+Magic trap
+
+light source
+__________
+Torch
+hole in the roof
+
+___________________________________________________________________________
+Gameplay
+
+evolved chuchu-rocket
+
+path modifier
+	library feature increase mage's chance of entering this room
+	jail, increase hero with same class
+
+
+
+tower war like? buying hero to crush opponent dungeon
+
+
+
+___________________________________________________________________________
+
+
+role :
+	villager
+		at night stalk another character allow to check if not werewolf
+	werewolf
+		at night select another character
+		
+
+feature
+	main menu
+	see list of roles (and quantity of each one)
+	clues?
+		
+client feature
+	player full identity
+	night/day clock
+	other player identity
+	action choice box
+	log
+
+________________________________________________________________________
+
+
+basic :
+	1v1
+	2 army facing each other
+	select init position of unity groups
+	each step make them go forward
+	swap each step
+	unity type :
+		soldier (melee)
+		hoplite (melee/strike first)
+		cavalery (melee/move faster)
+		archer (ranged)
+	ability :
+		melee : block and damage facing, left and right unit in reach
+		ranged : damage facing unit
+		
+		
+
+advanced :
+	unit with special ability triggered on swap
+	special terrain
+	

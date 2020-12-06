@@ -1,0 +1,15 @@
+
+<div class="worldmap" style="display: inline-grid; grid-template-rows:repeat(1em)">
+:: for oDoor in oWorldmap.doorAr ::
+	<div class="door :: if oDoor.vertical :: horizontal :: endif ::" style="grid-column: :: oDoor.position.x + 1 ::; grid-row: :: oDoor.position.y + 1  ::;"></div>
+:: endfor ::
+:: for oRoom in oWorldmap.roomAr ::
+	<div class="room 
+		:: if oRoom.id == oPlayer.room.id :: current :: endif :: 
+		:: if oRoom.active :: active :: endif ::
+		:: if oRoom.visited :: visited :: endif ::" 
+		:: if oRoom.active :: data-click="room_move" data-room="::oRoom.id::" :: endif ::
+		style="grid-column: :: oRoom.position.x + 1  ::; grid-row: :: oRoom.position.y + 1  ::;"
+	></div>
+:: endfor ::
+</div>
